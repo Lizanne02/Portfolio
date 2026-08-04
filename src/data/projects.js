@@ -49,7 +49,7 @@ export const projects = [
       {
         heading: "Het world-space menu",
         text: [
-          "Het menu is volledig world-space in plaats van een fullscreen overlay. Het kan op elk moment geopend en gesloten worden met een knop op de controller, waarna het — waar de speler ook staat — voor hun ogen wordt geopend. Via een optie in het script kan het menu zowel world-fixed als view-fixed gebruikt worden.",
+          "Het menu is volledig world-space in plaats van een fullscreen overlay. Het kan op elk moment geopend en gesloten worden met een knop op de controller, waarna het, waar de speler ook staat, voor hun ogen wordt geopend, waarbij dit hiervoor alleen mogelijk was via de host laptop waarop de game runde. ",
         ],
         list: [
           "Bij het openen zijn alleen de folders zichtbaar; processen en stappen verschijnen pas na een keuze, zodat het overzicht blijft.",
@@ -95,7 +95,7 @@ private void MoveMenuInFrontOfHead(bool smooth)
     }
 }`,
           explanation:
-            "Eén instelbare boolean bepaalt of het menu op zijn plek blijft staan (world-fixed) of meebeweegt met het hoofd (view-fixed). Bij het openen wordt het menu direct vóór de speler geplaatst; daarna volgt het — als view-fixed aan staat — het hoofd met een soepele lerp in plaats van er star aan vast te zitten, wat in VR een stuk comfortabeler voelt.",
+            "Eén instelbare boolean bepaalt of het menu op zijn plek blijft staan (world-fixed) of meebeweegt met het hoofd (view-fixed). Bij het openen wordt het menu direct vóór de speler op ooghoogte geplaatst. Uit onderzoek en testen bleek dat view-fixed een oncomfortabele ervaring gaf voor spelers, en deze optie is later dus compleet weggelaten.",
         },
       },
       {
@@ -136,7 +136,7 @@ t.onValueChanged.AddListener(toggleIsOn =>
     ApplyStepVisuals(folderIndex, processIndex, stepIndex, toggleIsOn, captured);
 });`,
           explanation:
-            "Nieuwe processen of stappen toevoegen betekent alleen data invullen — er hoeft geen UI met de hand gebouwd te worden. Elke stap weet zelf welke UI-elementen moeten oplichten en welke effecten in de omgeving bij hem horen, en de selectiestatus wordt per folder, proces en stap onthouden.",
+            "Nieuwe processen of stappen toevoegen betekent alleen data invullen. Er hoeft geen UI met de hand gebouwd te worden. Elke stap weet zelf welke UI-elementen moeten oplichten en welke effecten in de omgeving bij hem horen, en de selectiestatus wordt per folder, proces en stap onthouden.",
         },
       },
       {
@@ -150,8 +150,8 @@ t.onValueChanged.AddListener(toggleIsOn =>
       {
         heading: "Guidance door de omgeving",
         text: [
-          "Wanneer een stap in het menu wordt geactiveerd, worden de bijbehorende bureaus — die de betrokken personen in die stap vertegenwoordigen — op meerdere manieren uitgelicht: een paarse highlight, zwevende particles erboven en een oplichtend pad dat naar de bureaus leidt. Zo wordt de gebruiker door de omgeving naar de juiste plekken geleid.",
-          "De highlight is een doorzichtige paarse kubus op de plek van het bureau. De particles zweven er net boven en dwarrelen langzaam naar beneden om net wat extra aandacht te trekken. Het pad is een line renderer met een glowing materiaal dat vanaf de positie van de speler naar de bureaus loopt; bij meerdere bureaus verschijnen meerdere paden. Het pad past zich elke tien seconden aan de nieuwe positie van de speler aan, zodat het altijd blijft kloppen — ook als je door de omgeving loopt. Buiten een bepaald bereik verdwijnen de effecten en zodra je weer dichterbij komt verschijnen ze opnieuw.",
+          "Wanneer een stap in het menu wordt geactiveerd, worden de bijbehorende bureaus, die de betrokken en onderdelen in die stap vertegenwoordigen, op meerdere manieren uitgelicht: een paarse highlight, zwevende particles erboven en een oplichtend pad dat naar de bureaus leidt. Zo wordt de gebruiker door de omgeving naar de juiste plekken geleid.",
+          "Deze effecten zijn eerst grondig onderzocht met testen, en bleken uiteindelijk de meeste aandacht van de gebruiker te trekken. De highlight is een doorzichtige paarse kubus op de plek van het bureau. Het particle-effect uit Unity zweeft er net boven en beweegt langzaam naar beneden om wat extra aandacht te trekken. Het pad is een line renderer met een glowing materiaal dat vanaf de positie van de speler naar de bureaus loopt; bij meerdere bureaus verschijnen meerdere paden. Het pad past zich elke tien seconden aan de nieuwe positie van de speler aan, zodat het altijd blijft kloppen, ook als je door de omgeving loopt. Buiten een bepaald bereik verdwijnen de effecten en zodra je weer dichterbij komt verschijnen ze opnieuw.",
         ],
         image: {
           src: "/images/orginsights-guidance.png",
@@ -235,7 +235,7 @@ public void RemoveRequest()
       {
         heading: "Wincondities die echt kloppen",
         text: [
-          "Je wint pas als je álle vijanden hebt verslagen. Dat klinkt simpel, maar mijn eerste versies deden het net verkeerd: eerst werden bij verlies alle vijanden meteen mee 'gedood' waardoor je direct het winscreen zag, en daarna won je al zodra het maximale aantal vijanden gespáwnd was — zonder ze te verslaan. De oplossing was een teller die alleen bij een echte kill omhoog gaat.",
+          "Je wint pas als je alle vijanden hebt verslagen. Dat klinkt simpel, maar mijn eerste versies deden het net verkeerd: eerst werden bij verlies alle vijanden meteen mee 'gedood' waardoor je ook direct het winscreen zag, en daarna won je al zodra het maximale aantal vijanden gespawnd was zonder ze echt te verslaan. De oplossing was een teller die alleen bij een echte kill omhoog gaat.",
         ],
         code: {
           caption: "Uit Enemy.cs — de winconditie",
@@ -255,13 +255,13 @@ public override void Die()
     base.Die();
 }`,
           explanation:
-            "Elke vijand die écht sterft telt de statische teller op; pas als die gelijk is aan het totaal, schakelt de game naar het winscreen. Dit soort lessen — eerst de foute aanpak, dan begrijpen waaróm die fout is — heb ik in mijn technische documentatie per sprint bijgehouden.",
+            "Elke vijand die ook echt sterft telt de statische teller op; pas als die gelijk is aan het totaal, schakelt de game naar het winscreen. Dit soort lessen: eerst de foute aanpak, dan begrijpen waarom die fout is, heb ik in mijn technische documentatie per sprint bijgehouden.",
         },
       },
       {
         heading: "Skeletten met een eigen wil",
         text: [
-          "De skeletons in level 2 kiezen een willekeurige positie op de map, bewegen daarheen en beginnen daar met botten gooien. De uitdaging: de basisklasse Enemy beweegt standaard richting de speler, en dat gedrag moest ik overschrijven zonder de rest van de overerving te breken.",
+          "De skeletons in level 2 kiezen een willekeurige positie op de map, bewegen daarheen en beginnen daar met botten gooien. De uitdaging is de basisklasse Enemy die standaard beweegt richting de speler, en dat gedrag moest ik overschrijven zonder de rest van de overerving te breken.",
         ],
         code: {
           caption: "Uit Skeleton.cs — bewegen naar een willekeurige stoppositie",
@@ -305,27 +305,27 @@ private void GenerateRandomStopPosition()
     tools: ["Unity", "C#"],
     period: "2024",
     summary:
-      "Arcade game in teamverband gemaakt in Unity en C#. Ik bouwde de stoplichten die dynamisch van positie wisselen en de laser die op de speler schiet.",
+      "Arcade game in teamverband gemaakt in Unity en C#. Ik bouwde de stoplichten die dynamisch van positie wisselen, het sound-design en de laser die op de speler schiet.",
     description: [
-      "Deze game is gemaakt in teamverband in Unity en C#. Persoonlijk heb ik gewerkt aan de stoplichten, die dynamisch switchen van positie, en het schieten van de laser richting de player. Je kunt over de laser heenspringen, maar verliest health als je geraakt wordt.",
-      "De boss die je uiteindelijk moet verslaan door deze te slaan is expres groter gemaakt en heeft een andere kleur gekregen, zodat deze duidelijk te onderscheiden is van de andere stoplichten.",
+      "Deze game is gemaakt in teamverband in Unity en C#. Persoonlijk heb ik gewerkt aan de stoplichten zelf, die dynamisch switchen van positie, het sound-design en het schieten van de laser richting de player. Je kunt over de laser heenspringen, maar verliest health als je geraakt wordt.",
+      "De boss die je uiteindelijk moet verslaan door deze te slaan is expres groter gemaakt en heeft een andere kleur gekregen, zodat deze duidelijk als baas te onderscheiden is van de andere stoplichten.",
     ],
     sections: [
       {
-        heading: "Zo speel je het",
-        text: [
-          "Spring over de rijdende auto's om niet te vallen, ontwijk de lasers van het kwaadaardige stoplicht en versla uiteindelijk de boss met je zwaard. De game is direct in de browser te spelen via de knop hieronder.",
-        ],
-        list: [
-          "WASD — bewegen",
-          "Spatiebalk — springen",
-          "Linkermuisknop — zwaardaanval",
-        ],
+        // heading: "Zo speel je het",
+        // text: [
+        //   "Spring over de rijdende auto's om niet te vallen, ontwijk de lasers van het kwaadaardige stoplicht en versla uiteindelijk de boss met je zwaard. De game is direct in de browser te spelen via de knop hieronder.",
+        // ],
+        // list: [
+        //   "WASD — bewegen",
+        //   "Spatiebalk — springen",
+        //   "Linkermuisknop — zwaardaanval",
+        // ],
       },
       {
         heading: "Stoplichten die de baas zijn",
         text: [
-          "Het stoplicht is niet alleen decor maar bepaalt het hele gevecht: het wisselt automatisch van kleur op instelbare tijden, en elke kleur activeert een eigen aanvalsfase van de boss. Bij het wisselen schakelen zowel de materialen als echte lichtbronnen mee, zodat je altijd in één oogopslag ziet welke fase actief is.",
+          "Het stoplicht zelf dient als een baas: het wisselt automatisch van kleur op instelbare tijden, en elke kleur activeert een eigen aanvalsfase van de boss. Bij het wisselen schakelen zowel de materialen als echte lichtbronnen mee, zodat je altijd in één oogopslag ziet welke fase actief is.",
         ],
         code: {
           caption: "Uit TrafficLightController.cs — elke kleur is een aanvalsfase",
@@ -366,13 +366,13 @@ void SetLight(LightColor color)
     // ... en hetzelfde voor geel en rood
 }`,
           explanation:
-            "De tijden per kleur zijn instelbaar in de Inspector, zodat de moeilijkheid makkelijk te tweaken was tijdens playtests. De aanvalsfases (groen, oranje, rood) zijn losse componenten die aan- en uitgezet worden — nieuwe fases toevoegen kan zonder deze controller te herschrijven.",
+            "De tijden per kleur zijn instelbaar in de Inspector, zodat de moeilijkheid makkelijk te tweaken was tijdens playtests. De aanvalsfases (groen, oranje, rood) zijn losse componenten die aan- en uitgezet worden. Mieuwe fases toevoegen kan zonder deze controller te herschrijven.",
         },
       },
       {
         heading: "Lasers uit een object pool",
         text: [
-          "De boss schiet lasers richting de positie van de speler. Vóór elk schot klinkt eerst een oplaadgeluid als waarschuwing, zodat je een seconde hebt om weg te springen. De lasers zelf worden niet steeds opnieuw aangemaakt maar hergebruikt uit een object pool — beter voor de performance, omdat Instantiate en Destroy in Unity relatief duur zijn.",
+          "De boss schiet lasers richting de positie van de speler. Vóór elk schot klinkt eerst een oplaadgeluid als waarschuwing, zodat je een seconde hebt om weg te springen. De lasers zelf worden niet steeds opnieuw aangemaakt maar hergebruikt uit een object pool, wat beter is voor de performance van de game",
         ],
         code: {
           caption: "Uit BossAttack.cs & LaserPool.cs — richten, schieten, hergebruiken",
@@ -407,7 +407,7 @@ public GameObject GetLaser()
     return Instantiate(laserPrefab);
 }`,
           explanation:
-            "Uitgeschoten lasers gaan na een raak schot of vijf seconden terug de pool in. Leuk detail: een laser kan met het zwaard teruggekaatst worden — een gedeflecte laser die de boss raakt, doet schade aan de boss zelf.",
+            "Uitgeschoten lasers gaan na een raak schot of vijf seconden terug de pool in. Een laser kan met het zwaard teruggekaatst worden. Een gedeflecte laser die de boss raakt, doet schade aan de boss zelf.",
         },
       },
     ],
@@ -463,13 +463,13 @@ Color ChooseDifferentColor()
     return chosenColor;
 }`,
           explanation:
-            "De do-while-lus trekt net zo lang een willekeurige kleur tot die verschilt van de vorige. De kogel geeft zijn kleur door aan de enemy zodra die geraakt wordt.",
+            "De do-while-lus runt net zo lang een willekeurige kleur tot die verschilt van de vorige. De kogel geeft zijn kleur door aan de enemy zodra die geraakt wordt.",
         },
       },
       {
         heading: "Jetpack met fuel-management",
         text: [
-          "De jetpack verbruikt fuel zolang je vliegt en vult langzaam weer bij zodra je op de grond staat. Op is op: dan valt de speler terug — met extra zwaartekracht bij het dalen, zodat het vliegen snappy blijft voelen in plaats van zweverig.",
+          "De jetpack verbruikt fuel zolang je vliegt en vult langzaam weer bij zodra je op de grond staat. Op is op, dan valt de speler terug met extra zwaartekracht bij het dalen, zodat het vliegen snappy blijft voelen in plaats van zweverig.",
         ],
         code: {
           caption: "Uit PlayerController.cs — fuel verbruiken en bijvullen",
