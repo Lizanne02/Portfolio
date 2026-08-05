@@ -15,6 +15,19 @@ export default function About() {
           ))}
         </div>
       </div>
+
+      {profile.stats && (
+        <div className="stats-grid">
+          {profile.stats.map((stat, i) => (
+            <div className="stat-card hex-frame" key={i}>
+              <div className="hex-frame__inner">
+                <span className="stat-value">{stat.value}</span>
+                <span className="stat-label">{stat.label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

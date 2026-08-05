@@ -25,6 +25,8 @@ export default function App() {
           <nav className="site-nav">
             <Link to="/#about">About me</Link>
             <Link to="/#projects">Projects</Link>
+            <Link to="/#skills">Skills</Link>
+            <Link to="/#contact">Contact</Link>
           </nav>
         </div>
       </header>
