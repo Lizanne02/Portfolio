@@ -5,7 +5,7 @@
  */
 
 export const profile = {
-  name: "Lizanne van Rhijn",
+  name: "Lizanne",
   fullName: "Lizanne van Rhijn",
   tagline: "Game Development Student · HvA Amsterdam",
 
@@ -16,11 +16,15 @@ export const profile = {
 
   // Short text under the photo on the homepage
   heroIntro:
-    "I have built systems that make games playable, from VR interfaces, boss encounters, and enemy behavior. Game Development student at HvA, looking for an IT internship.",
+    "Eager and driven student with a passion for software development, game design, and virtual reality.",
 
   // Paragraphs in the "About me" block
   about: [
-    "I'm an eager and driven HBO-ICT Game Development student with a passion for software development, game development, and virtual reality working primarily in Unity and C#. I build systems that scale and hold up under real use: a fully data-driven VR menu that grows to 50+ processes without hand-built UI, backed by UX research and A/B testing with real users. I've also built object-pooled combat systems, tunable resource management, and enemy AI with independent movement and attack behavior going all the way back to my first project, where I also learned to work with databases to persist player progress. I'm always looking for opportunities to grow my technical and creative skills further, through challenging software and game development projects.",
+    "I'm an eager and driven HBO-ICT Game Development student with a passion for software development, game development, and virtual reality working primarily in Unity and C#.",
+
+    "I build systems that scale and hold up under real use: a fully data-driven VR menu that grows to 50+ processes without hand-built UI, backed by UX research and A/B testing with real users. I've also built object-pooled combat systems, tunable resource management, and enemy AI with independent movement and attack behavior going all the way back to my first project, where I also learned to work with databases to persist player progress.",
+
+    "I'm always looking for opportunities to grow my technical and creative skills further, through challenging software and game development projects.",
   ],
 
   // Quick-glance stats shown under the "About me" text
@@ -33,9 +37,9 @@ export const profile = {
 
   // Skills grouped by category for the "Skills" section
   skills: {
-    "Engines & Frameworks": ["Unity", "MonoGame"],
-    Languages: ["C#", "JavaScript", "HTML/CSS", "SQL", "Python"],
-    "Tools & Other": ["Git / GitHub", "Blender", "Quixel Mixer", "R", "Microsoft Office"],
+    "Engines & Frameworks": ["Unity", "MonoGame", "XR Interaction Toolkit"],
+    Languages: ["C#", "JavaScript", "HTML/CSS", "SQL"],
+    "Tools & Other": ["Git / GitHub", "Blender", "Quixel Mixer", "Microsoft Office"],
   },
 
   // Intro paragraph for the "Contact" section
