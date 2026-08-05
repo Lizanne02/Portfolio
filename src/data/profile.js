@@ -19,8 +19,7 @@ export const profile = {
 
   // Alinea's in het "Over mij"-blok
   about: [
-    "Ik ben een leergierige en gedreven student met een passie voor softwareontwikkeling, game design en virtual reality. Mijn interesse ligt voornamelijk bij het ontwikkelen van games en applicaties, maar ook het creëren van websites en het sorteren en analyseren van data behoort tot mijn vaardigheden.",
-    "Naast mijn technische vaardigheden beschik ik over een goed analytisch denk- en probleemoplossend vermogen, oog voor detail, een groot verantwoordelijkheidsgevoel en sterke samenwerkingsvaardigheden. Zo neem ik bijvoorbeeld vaak de leiding in een groepsproject, en zorg ik dat er eerst een duidelijke planning en eerlijke taakverdeling is.",
+    "Ik ben een leergierige en gedreven HBO-ICT Game Development-student met een passie voor softwareontwikkeling, game development en virtual reality. Ik ontwikkel graag games en interactieve applicaties in Unity en C#, maar heb ook interesse in webontwikkeling en data-analyse. Naast mijn technische vaardigheden beschik ik over een sterk analytisch en probleemoplossend vermogen, oog voor detail en een groot verantwoordelijkheidsgevoel. Tijdens groepsprojecten neem ik regelmatig het initiatief door een duidelijke planning op te stellen en samen te werken aan een eerlijke taakverdeling.",
     "Zelfontwikkeling en het opdoen van nieuwe ervaringen staan voor mij centraal, zowel binnen mijn studie als in de praktijk. Ik streef naar mogelijkheden om mijn technische en creatieve vaardigheden verder te ontwikkelen en mijn kennis verder te verdiepen.",
   ],
 };
