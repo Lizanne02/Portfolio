@@ -15,6 +15,26 @@ export default function ProjectTile({ project }) {
           <h3>{project.title}</h3>
           <p className="tile-tagline">{project.tagline}</p>
           <p className="tile-summary">{project.summary}</p>
+
+          {project.highlights && (
+            <ul className="tile-highlights">
+              {project.highlights.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          )}
+
+          {project.tools && (
+            <div className="tool-tags tile-tags">
+              {project.tools.map((tool) => (
+                <span key={tool} className="tool-tag">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <span className="tile-case-study">View Case Study ↗</span>
         </div>
       </div>
     </Link>

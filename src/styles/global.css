@@ -498,6 +498,51 @@ img {
   color: var(--text);
 }
 
+.tile-highlights {
+  list-style: none;
+  margin-top: 0.9rem;
+}
+
+.tile-highlights li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.tile-highlights li + li {
+  margin-top: 0.4rem;
+}
+
+.tile-highlights li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: var(--gold);
+  font-size: 0.65rem;
+}
+
+.tile-tags {
+  margin-top: 1.1rem;
+}
+
+.tile-case-study {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+.project-tile:hover .tile-case-study {
+  color: var(--gold-bright);
+}
+
 /* ---------- Project detail page ---------- */
 .project-page {
   padding: 3rem 0 4.5rem;

@@ -30,7 +30,7 @@
 export const projects = [
   {
     slug: "orginsights",
-    title: "Organisational Insights",
+    title: "OrgInsights",
     tagline: "VR menu redesign & 3D environment",
     thumbnail: "/images/orginsights-guidance.png",
     banner: "/images/orginsights-guidance.png",
@@ -39,8 +39,13 @@ export const projects = [
     period: "2026",
     summary:
       "Redesign of a VR menu and a modular 3D office environment for the Immersive Tech Studio — from research and A/B tests to a working world-space menu in Unity.",
+    highlights: [
+      "Designed a fully data-driven VR menu that scales to 50+ processes without hand-built UI.",
+      "Ran UX research and A/B tests to validate menu concepts with real users.",
+      "Built a real-time guidance system with dynamic highlights and paths.",
+    ],
     description: [
-      "For the Immersive Tech Studio my team worked on creating a mixed-reality experience that lets users navigate organisational structures and HR processes in immersive space. I worked on redesigning a VR menu to make it more user-friendly, accessible, and scalable for large amounts of data. The existing overlay menu didn't work well in VR, because users couldn't open the menu on their own and the overview got lost with many options.",
+      "For the Immersive Tech Studio, I worked on redesigning a VR menu to make it more user-friendly, accessible, and scalable for large amounts of data. The existing overlay menu didn't work well in VR, because users couldn't open the menu on their own and the overview got lost with many options.",
       "To solve this, I first researched different VR menu systems, such as world-space, view-fixed, and radial menus. I also analyzed existing VR games such as Beat Saber and Half-Life: Alyx to understand which interaction patterns work intuitively within virtual reality. This research showed that a scalable world-space/view-fixed menu was the best solution for complex interfaces with many processes and steps.",
       "Next, I designed two menu concepts and tested them via an A/B test with users. This showed that one compact radial menu was understood faster, but that a more extensive structured menu worked better with 50+ processes. Based on these results, I designed a final menu that stayed clear even with larger datasets.",
       "During user testing, the majority of testers found the menu clear and easy to use, successfully achieving the goal of a more accessible and user-friendly VR menu.",
@@ -222,6 +227,11 @@ public void RemoveRequest()
     period: "2025",
     summary:
       "Solo prototype in Unity and C#: shoot the enemy with color bullets to defeat it, while flying around with a jetpack with limited fuel.",
+    highlights: [
+      "Solo-developed the full prototype in Unity and C#.",
+      "Built a color-shooting mechanic that never repeats the same color twice.",
+      "Implemented a tunable jetpack fuel system for fast, responsive flight.",
+    ],
     description: [
       "This is a prototype of a game I made myself in Unity and C#. The idea is that you shoot the enemy with color bullets, giving it a color and defeating it that way. At the same time, you fly around with a jetpack with limited fuel. The enemy changes to the color it's shot with, and you can never shoot the same color twice in a row. If you get hit yourself, you lose health and your color.",
       "Once you've collected all the collectibles, you become invincible for five seconds: you turn bright pink and can't be hit by the enemy. After that, the collectibles respawn.",
@@ -318,6 +328,11 @@ if (!isSpacePressed && currentFuel < maxFuel)
     period: "2024",
     summary:
       "Arcade game made as a team in Unity and C#. I built the traffic lights that dynamically switch position, the sound design, and the laser that shoots at the player.",
+    highlights: [
+      "Built traffic lights that dynamically reposition and double as a multi-phase boss.",
+      "Implemented an object-pooled laser system with sword-deflect mechanics.",
+      "Designed the sound design and warning cues for boss attacks.",
+    ],
     description: [
       "This game was made as a team in Unity and C#. Personally, I worked on the traffic lights themselves, which dynamically switch position, the sound design, and firing the laser at the player. You can jump over the laser, but you lose health if you get hit.",
       "The boss you eventually have to defeat by hitting it was deliberately made bigger and given a different color, so it's clearly distinguishable as the boss from the other traffic lights.",
@@ -442,6 +457,11 @@ public GameObject GetLaser()
     period: "2024",
     summary:
       "Top-down shooter in a haunted house, made as a team in C# and MonoGame. I designed the levels and built the win/lose systems and enemy behavior, among other things.",
+    highlights: [
+      "Designed all levels and the enemy shooting patterns.",
+      "Built win/lose conditions and game states across both levels.",
+      "Added database queries to save player progress between sessions.",
+    ],
     description: [
       "This game was made as a team in C# and MonoGame. Personally, I designed the levels, along with the enemy and its shooting pattern. The game gets harder with each level, and in the last level the enemy even moves back and forth. The goal is to shoot the enemy while dodging their attacks.",
     ],
