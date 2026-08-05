@@ -531,6 +531,24 @@ img {
   border-top: 1px solid rgba(200, 170, 110, 0.25);
 }
 
+.project-figure-row {
+  display: flex;
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+  flex-wrap: wrap;
+}
+
+.project-figure-row .project-figure {
+  flex: 1 1 260px;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .project-figure-row {
+    flex-direction: column;
+  }
+}
+
 .code-block {
   margin: 1.75rem 0;
 }

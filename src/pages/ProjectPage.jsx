@@ -81,6 +81,19 @@ export default function ProjectPage() {
             </figure>
           )}
 
+          {section.images && (
+            <div className="project-figure-row">
+              {section.images.map((img, i) => (
+                <figure className="project-figure hex-frame" key={i}>
+                  <div className="hex-frame__inner">
+                    <img src={img.src} alt={img.alt} />
+                    {img.caption && <figcaption>{img.caption}</figcaption>}
+                  </div>
+                </figure>
+              ))}
+            </div>
+          )}
+
           {section.code && (
             <div className="code-block">
               {section.code.caption && (

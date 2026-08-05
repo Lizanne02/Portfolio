@@ -215,7 +215,7 @@ public void RemoveRequest()
     slug: "prism-break",
     title: "Prism Break",
     tagline: "3D Action Prototype",
-    thumbnail: "/images/prism-break.png",
+    thumbnail: "/images/prism-break.gif",
     banner: "/images/prism-break.png",
     role: "Solo-ontwikkelaar",
     tools: ["Unity", "C#"],
@@ -227,6 +227,21 @@ public void RemoveRequest()
       "Als je alle collectibles hebt verzameld, ben je vijf seconden invincible: je wordt felroze en kunt niet geraakt worden door de enemy. Daarna respawnen de collectibles weer.",
     ],
     sections: [
+      {
+        heading: "Gameplay",
+        images: [
+          {
+            src: "/images/prism-break.gif",
+            alt: "Gameplay uit Prism Break: de speler vliegt met een jetpack over een platform met pilaren",
+            caption: "Rondvliegen met de jetpack tussen de pilaren.",
+          },
+          {
+            src: "/images/prism-break-2.gif",
+            alt: "Gameplay uit Prism Break: close-up van de speler tussen twee pilaren",
+            caption: "De speler van dichterbij tussen de pilaren.",
+          },
+        ],
+      },
       {
         heading: "Nooit twee keer dezelfde kleur",
         text: [
