@@ -457,12 +457,6 @@ public GameObject GetLaser()
           "Een maximum aantal skeletons tegelijk op het scherm",
           "Query naar de database om je voortgang (behaalde levels) op te slaan",
         ],
-        image: {
-          src: "/images/graveyard-madness-2.png",
-          alt: "Level uit Graveyard Madness met een vijand die roze projectielen schiet",
-          caption:
-            "Elk level krijgt een eigen vijand met een eigen schietpatroon — en wordt steeds een stukje moeilijker.",
-        },
       },
       {
         heading: "Wincondities die echt kloppen",
