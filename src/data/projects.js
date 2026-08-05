@@ -296,7 +296,7 @@ if (!isSpacePressed && currentFuel < maxFuel)
     slug: "stoplight-chaos",
     title: "Stoplight Chaos",
     tagline: "3D Arcade Game",
-    thumbnail: "/images/stoplight-chaos.png",
+    thumbnail: "/images/stoplight-chaos.gif",
     banner: "/images/stoplight-chaos.png",
     role: "Gameplay-programmering: stoplichten & laser",
     tools: ["Unity", "C#"],
@@ -309,7 +309,13 @@ if (!isSpacePressed && currentFuel < maxFuel)
     ],
     sections: [
       {
-        // heading: "Zo speel je het",
+        heading: "Gameplay",
+        image: {
+          src: "/images/stoplight-chaos.gif",
+          alt: "Gameplay uit Stoplight Chaos: de stoplichten wisselen van kleur en positie terwijl auto's voorbijrijden",
+          caption:
+            "De stoplichten wisselen van kleur en positie, elk met een eigen aanvalsfase.",
+        },
         // text: [
         //   "Spring over de rijdende auto's om niet te vallen, ontwijk de lasers van het kwaadaardige stoplicht en versla uiteindelijk de boss met je zwaard. De game is direct in de browser te spelen via de knop hieronder.",
         // ],
