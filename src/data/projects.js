@@ -59,6 +59,12 @@ export const projects = [
           "Duidelijke kleurvakken en titels per onderdeel voorkomen verwarring; scrollbars houden het menu bruikbaar als het aantal opties groeit.",
           "De achtergrond is doorzichtig, zodat je de effecten van het selecteren van opties direct in de omgeving ziet.",
         ],
+        image: {
+          src: "/images/orginsights-worldspace-menu.png",
+          alt: "Het world-space VR-menu met Folders, Processes en Steps panelen",
+          caption:
+            "Het world-space menu in VR: folders, processen en stappen in aparte panelen, met een doorzichtige achtergrond.",
+        },
         code: {
           caption: "Uit MenuFollowHead.cs — world-fixed of view-fixed met één optie",
           snippet: `[Header("View-fixed?")]
@@ -146,6 +152,12 @@ t.onValueChanged.AddListener(toggleIsOn =>
           "Tijdens het proces ontdekte ik dat één groot model niet efficiënt werkte voor UV-unwrapping en performance. Daarom heb ik het ontwerp opgesplitst in losse, herbruikbare onderdelen (prefabs) zoals muren, deuren en glaswanden, die later flexibel in Unity geplaatst konden worden. Vervolgens heb ik de modellen geoptimaliseerd met UV-unwrapping, baked ID masks en texture-workflows in Quixel Mixer om verschillende materialen toe te passen zonder performanceverlies.",
           "Het eindresultaat was een schaalbare en geoptimaliseerde kantooromgeving met modulaire assets, realistische materialen en een workflow die geschikt is voor verdere uitbreiding binnen realtime applicaties en VR-projecten.",
         ],
+        image: {
+          src: "/images/orginsights-modular-environment.png",
+          alt: "Modulaire kantoor-assets: een tafel en een muursegment met kastruimtes, gemaakt in Blender",
+          caption:
+            "Voorbeelden van de modulaire assets uit de kantooromgeving: een tafel en een muursegment met kastruimtes.",
+        },
       },
       {
         heading: "Guidance door de omgeving",
@@ -200,102 +212,87 @@ public void RemoveRequest()
     link: null,
   },
   {
-    slug: "graveyard-madness",
-    title: "Graveyard Madness",
-    tagline: "2D Top-down Shooter",
-    thumbnail: "/images/graveyard-madness.png",
-    banner: "/images/graveyard-madness.png",
-    role: "Leveldesign, gamestates & gameplay-systemen",
-    tools: ["MonoGame", "C#"],
-    period: "2024",
+    slug: "prism-break",
+    title: "Prism Break",
+    tagline: "3D Action Prototype",
+    thumbnail: "/images/prism-break.png",
+    banner: "/images/prism-break.png",
+    role: "Solo-ontwikkelaar",
+    tools: ["Unity", "C#"],
+    period: "2025",
     summary:
-      "Top-down shooter in een spookhuis, gemaakt in teamverband in C# en MonoGame. Ik ontwierp de levels en bouwde onder andere de win- en verliessystemen en het vijandgedrag.",
+      "Soloprototype in Unity en C#: beschiet de enemy met kleurkogels om hem te verslaan, terwijl je rondvliegt met een jetpack met gelimiteerde fuel.",
     description: [
-      "Deze game is in teamverband gemaakt in C# en MonoGame. Persoonlijk heb ik de levels gedesigned, samen met de enemy en het schietpatroon. De game wordt moeilijker met elk level, waarin de enemy in het laatste level zelfs heen en weer beweegt. Het doel is om de enemy te beschieten, terwijl je hun aanvallen ontwijkt.",
+      "Dit is een prototype van een game die ik zelf gemaakt heb in Unity en C#. Het is de bedoeling dat je de enemy beschiet met kleurkogels, zodat je hem een kleur kan geven en hem daarmee kan verslaan. Tegelijkertijd vlieg je met een jetpack met gelimiteerde fuel. De enemy verandert in de kleur waarmee hij beschoten wordt, en er kan nooit twee keer achter elkaar met dezelfde kleur geschoten worden. Als je zelf wordt geraakt, verlies je health én je kleur.",
+      "Als je alle collectibles hebt verzameld, ben je vijf seconden invincible: je wordt felroze en kunt niet geraakt worden door de enemy. Daarna respawnen de collectibles weer.",
     ],
     sections: [
       {
-        heading: "Mijn bijdrage",
-        list: [
-          "Player movement en de boundaries van de map",
-          "Startscreen, win- en losescreen met restart-knop",
-          "Win- en losecondities",
-          "Gamestates voor level 1 en 2",
-          "Skeletons die naar een willekeurige positie bewegen en daar schieten",
-          "Een maximum aantal skeletons tegelijk op het scherm",
-          "Query naar de database om je voortgang (behaalde levels) op te slaan",
-        ],
-        image: {
-          src: "/images/graveyard-madness-2.png",
-          alt: "Level uit Graveyard Madness met een vijand die roze projectielen schiet",
-          caption:
-            "Elk level krijgt een eigen vijand met een eigen schietpatroon — en wordt steeds een stukje moeilijker.",
-        },
-      },
-      {
-        heading: "Wincondities die echt kloppen",
+        heading: "Nooit twee keer dezelfde kleur",
         text: [
-          "Je wint pas als je alle vijanden hebt verslagen. Dat klinkt simpel, maar mijn eerste versies deden het net verkeerd: eerst werden bij verlies alle vijanden meteen mee 'gedood' waardoor je ook direct het winscreen zag, en daarna won je al zodra het maximale aantal vijanden gespawnd was zonder ze echt te verslaan. De oplossing was een teller die alleen bij een echte kill omhoog gaat.",
+          "De kern van het prototype is de kleur-mechaniek: elke kogel krijgt een willekeurige kleur, maar nooit dezelfde als de vorige. Zo blijft de speler wisselen en kan er geen kleur 'gespamd' worden.",
         ],
         code: {
-          caption: "Uit Enemy.cs — de winconditie",
-          snippet: `public static int EnemiesKilled = 0;
-
-public override void Die()
+          caption: "Uit ShootingController.cs — de kleurkogels",
+          snippet: `void Shoot()
 {
-    EnemiesKilled++;
-    // Check if all enemies are spawned and all are defeated
-    if (EnemiesKilled == MaxEnemies)
-    {
-        GameEnvironment.GameStateManager.SwitchToState(
-            GameStateManager.WIN_SCREEN_STATE);
-    }
+    GameObject bullet = Instantiate(bulletPrefab,
+        shootingPoint.position, Quaternion.identity);
+    Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-    // Roep de basis Die() methode aan om het object te verwijderen
-    base.Die();
-}`,
-          explanation:
-            "Elke vijand die ook echt sterft telt de statische teller op; pas als die gelijk is aan het totaal, schakelt de game naar het winscreen. Dit soort lessen: eerst de foute aanpak, dan begrijpen waarom die fout is, heb ik in mijn technische documentatie per sprint bijgehouden.",
-        },
-      },
-      {
-        heading: "Skeletten met een eigen wil",
-        text: [
-          "De skeletons in level 2 kiezen een willekeurige positie op de map, bewegen daarheen en beginnen daar met botten gooien. De uitdaging is de basisklasse Enemy die standaard beweegt richting de speler, en dat gedrag moest ik overschrijven zonder de rest van de overerving te breken.",
-        ],
-        code: {
-          caption: "Uit Skeleton.cs — bewegen naar een willekeurige stoppositie",
-          snippet: `private void MoveToRandomPosition()
-{
-    // Calculate direction towards the random stopping position
-    Vector2 direction = Vector2.Normalize(randomStopPosition - position);
-    Velocity += direction * MovementSpeed;
+    Color chosenColor = ChooseDifferentColor();
+    lastChosenColor = chosenColor;
 
-    if (Vector2.Distance(position, randomStopPosition) < 1f)
-    {
-        // If close enough to the random position, stop moving
-        Velocity = Vector2.Zero;
-        isStopped = true;
-    }
+    bullet.GetComponent<Bullet>().bulletColor = chosenColor;
+    bullet.GetComponent<Renderer>().material.color = chosenColor;
 
-    Position += Velocity;
+    // Zorg ervoor dat de kogel in de richting van de camera vliegt
+    rb.linearVelocity = cameraTransform.forward * bulletSpeed;
 }
 
-private void GenerateRandomStopPosition()
+Color ChooseDifferentColor()
 {
-    // Genereer een willekeurige positie binnen de schermgrenzen
-    float randomX = (float)random.Next(60, 750);
-    float randomY = (float)random.Next(60, 770);
-    randomStopPosition = new Vector2(randomX, randomY);
+    Color chosenColor;
+    do
+    {
+        chosenColor = bulletColors[Random.Range(0, bulletColors.Length)];
+    } while (chosenColor == lastChosenColor);
+
+    return chosenColor;
 }`,
           explanation:
-            "Zodra een skelet stilstaat, start een schiet-timer die elke paar seconden een botprojectiel richting de speler gooit. Daarnaast houdt het level bij hoeveel skeletten er tegelijk op het scherm staan, zodat het spawnen stopt bij het maximum en pas verdergaat als er eentje verslagen is.",
+            "De do-while-lus runt net zo lang een willekeurige kleur tot die verschilt van de vorige. De kogel geeft zijn kleur door aan de enemy zodra die geraakt wordt.",
+        },
+      },
+      {
+        heading: "Jetpack met fuel-management",
+        text: [
+          "De jetpack verbruikt fuel zolang je vliegt en vult langzaam weer bij zodra je op de grond staat. Op is op, dan valt de speler terug met extra zwaartekracht bij het dalen, zodat het vliegen snappy blijft voelen in plaats van zweverig.",
+        ],
+        code: {
+          caption: "Uit PlayerController.cs — fuel verbruiken en bijvullen",
+          snippet: `// Als spatie ingedrukt is en er brandstof is, verminder brandstof
+if (isSpacePressed && currentFuel > 0)
+{
+    currentFuel -= fuelConsumptionRate * Time.deltaTime;
+    if (currentFuel <= 0)
+    {
+        currentFuel = 0; // Stop met vliegen als de brandstof op is
+    }
+}
+
+if (!isSpacePressed && currentFuel < maxFuel)
+{
+    currentFuel += fuelRefillRate * Time.deltaTime;
+    if (currentFuel > maxFuel) currentFuel = maxFuel;
+}`,
+          explanation:
+            "Verbruik en bijvullen zijn allebei instelbaar via de Inspector, zodat de balans van het vliegen makkelijk te tweaken was tijdens het testen.",
         },
       },
     ],
-    link: null,
-  },
-  {
+    link: "https://rhijnl.itch.io/prism-break",
+  },  {
     slug: "stoplight-chaos",
     title: "Stoplight Chaos",
     tagline: "3D Arcade Game",
@@ -414,87 +411,102 @@ public GameObject GetLaser()
     link: "https://rhijnl.itch.io/stoplight-chaos",
   },
   {
-    slug: "prism-break",
-    title: "Prism Break",
-    tagline: "3D Action Prototype",
-    thumbnail: "/images/prism-break.png",
-    banner: "/images/prism-break.png",
-    role: "Solo-ontwikkelaar",
-    tools: ["Unity", "C#"],
-    period: "2025",
+    slug: "graveyard-madness",
+    title: "Graveyard Madness",
+    tagline: "2D Top-down Shooter",
+    thumbnail: "/images/graveyard-madness.png",
+    banner: "/images/graveyard-madness.png",
+    role: "Leveldesign, gamestates & gameplay-systemen",
+    tools: ["MonoGame", "C#"],
+    period: "2024",
     summary:
-      "Soloprototype in Unity en C#: beschiet de enemy met kleurkogels om hem te verslaan, terwijl je rondvliegt met een jetpack met gelimiteerde fuel.",
+      "Top-down shooter in een spookhuis, gemaakt in teamverband in C# en MonoGame. Ik ontwierp de levels en bouwde onder andere de win- en verliessystemen en het vijandgedrag.",
     description: [
-      "Dit is een prototype van een game die ik zelf gemaakt heb in Unity en C#. Het is de bedoeling dat je de enemy beschiet met kleurkogels, zodat je hem een kleur kan geven en hem daarmee kan verslaan. Tegelijkertijd vlieg je met een jetpack met gelimiteerde fuel. De enemy verandert in de kleur waarmee hij beschoten wordt, en er kan nooit twee keer achter elkaar met dezelfde kleur geschoten worden. Als je zelf wordt geraakt, verlies je health én je kleur.",
-      "Als je alle collectibles hebt verzameld, ben je vijf seconden invincible: je wordt felroze en kunt niet geraakt worden door de enemy. Daarna respawnen de collectibles weer.",
+      "Deze game is in teamverband gemaakt in C# en MonoGame. Persoonlijk heb ik de levels gedesigned, samen met de enemy en het schietpatroon. De game wordt moeilijker met elk level, waarin de enemy in het laatste level zelfs heen en weer beweegt. Het doel is om de enemy te beschieten, terwijl je hun aanvallen ontwijkt.",
     ],
     sections: [
       {
-        heading: "Nooit twee keer dezelfde kleur",
-        text: [
-          "De kern van het prototype is de kleur-mechaniek: elke kogel krijgt een willekeurige kleur, maar nooit dezelfde als de vorige. Zo blijft de speler wisselen en kan er geen kleur 'gespamd' worden.",
+        heading: "Mijn bijdrage",
+        list: [
+          "Player movement en de boundaries van de map",
+          "Startscreen, win- en losescreen met restart-knop",
+          "Win- en losecondities",
+          "Gamestates voor level 1 en 2",
+          "Skeletons die naar een willekeurige positie bewegen en daar schieten",
+          "Een maximum aantal skeletons tegelijk op het scherm",
+          "Query naar de database om je voortgang (behaalde levels) op te slaan",
         ],
-        code: {
-          caption: "Uit ShootingController.cs — de kleurkogels",
-          snippet: `void Shoot()
-{
-    GameObject bullet = Instantiate(bulletPrefab,
-        shootingPoint.position, Quaternion.identity);
-    Rigidbody rb = bullet.GetComponent<Rigidbody>();
-
-    Color chosenColor = ChooseDifferentColor();
-    lastChosenColor = chosenColor;
-
-    bullet.GetComponent<Bullet>().bulletColor = chosenColor;
-    bullet.GetComponent<Renderer>().material.color = chosenColor;
-
-    // Zorg ervoor dat de kogel in de richting van de camera vliegt
-    rb.linearVelocity = cameraTransform.forward * bulletSpeed;
-}
-
-Color ChooseDifferentColor()
-{
-    Color chosenColor;
-    do
-    {
-        chosenColor = bulletColors[Random.Range(0, bulletColors.Length)];
-    } while (chosenColor == lastChosenColor);
-
-    return chosenColor;
-}`,
-          explanation:
-            "De do-while-lus runt net zo lang een willekeurige kleur tot die verschilt van de vorige. De kogel geeft zijn kleur door aan de enemy zodra die geraakt wordt.",
+        image: {
+          src: "/images/graveyard-madness-2.png",
+          alt: "Level uit Graveyard Madness met een vijand die roze projectielen schiet",
+          caption:
+            "Elk level krijgt een eigen vijand met een eigen schietpatroon — en wordt steeds een stukje moeilijker.",
         },
       },
       {
-        heading: "Jetpack met fuel-management",
+        heading: "Wincondities die echt kloppen",
         text: [
-          "De jetpack verbruikt fuel zolang je vliegt en vult langzaam weer bij zodra je op de grond staat. Op is op, dan valt de speler terug met extra zwaartekracht bij het dalen, zodat het vliegen snappy blijft voelen in plaats van zweverig.",
+          "Je wint pas als je alle vijanden hebt verslagen. Dat klinkt simpel, maar mijn eerste versies deden het net verkeerd: eerst werden bij verlies alle vijanden meteen mee 'gedood' waardoor je ook direct het winscreen zag, en daarna won je al zodra het maximale aantal vijanden gespawnd was zonder ze echt te verslaan. De oplossing was een teller die alleen bij een echte kill omhoog gaat.",
         ],
         code: {
-          caption: "Uit PlayerController.cs — fuel verbruiken en bijvullen",
-          snippet: `// Als spatie ingedrukt is en er brandstof is, verminder brandstof
-if (isSpacePressed && currentFuel > 0)
-{
-    currentFuel -= fuelConsumptionRate * Time.deltaTime;
-    if (currentFuel <= 0)
-    {
-        currentFuel = 0; // Stop met vliegen als de brandstof op is
-    }
-}
+          caption: "Uit Enemy.cs — de winconditie",
+          snippet: `public static int EnemiesKilled = 0;
 
-if (!isSpacePressed && currentFuel < maxFuel)
+public override void Die()
 {
-    currentFuel += fuelRefillRate * Time.deltaTime;
-    if (currentFuel > maxFuel) currentFuel = maxFuel;
+    EnemiesKilled++;
+    // Check if all enemies are spawned and all are defeated
+    if (EnemiesKilled == MaxEnemies)
+    {
+        GameEnvironment.GameStateManager.SwitchToState(
+            GameStateManager.WIN_SCREEN_STATE);
+    }
+
+    // Roep de basis Die() methode aan om het object te verwijderen
+    base.Die();
 }`,
           explanation:
-            "Verbruik en bijvullen zijn allebei instelbaar via de Inspector, zodat de balans van het vliegen makkelijk te tweaken was tijdens het testen.",
+            "Elke vijand die ook echt sterft telt de statische teller op; pas als die gelijk is aan het totaal, schakelt de game naar het winscreen. Dit soort lessen: eerst de foute aanpak, dan begrijpen waarom die fout is, heb ik in mijn technische documentatie per sprint bijgehouden.",
+        },
+      },
+      {
+        heading: "Skeletten met een eigen wil",
+        text: [
+          "De skeletons in level 2 kiezen een willekeurige positie op de map, bewegen daarheen en beginnen daar met botten gooien. De uitdaging is de basisklasse Enemy die standaard beweegt richting de speler, en dat gedrag moest ik overschrijven zonder de rest van de overerving te breken.",
+        ],
+        code: {
+          caption: "Uit Skeleton.cs — bewegen naar een willekeurige stoppositie",
+          snippet: `private void MoveToRandomPosition()
+{
+    // Calculate direction towards the random stopping position
+    Vector2 direction = Vector2.Normalize(randomStopPosition - position);
+    Velocity += direction * MovementSpeed;
+
+    if (Vector2.Distance(position, randomStopPosition) < 1f)
+    {
+        // If close enough to the random position, stop moving
+        Velocity = Vector2.Zero;
+        isStopped = true;
+    }
+
+    Position += Velocity;
+}
+
+private void GenerateRandomStopPosition()
+{
+    // Genereer een willekeurige positie binnen de schermgrenzen
+    float randomX = (float)random.Next(60, 750);
+    float randomY = (float)random.Next(60, 770);
+    randomStopPosition = new Vector2(randomX, randomY);
+}`,
+          explanation:
+            "Zodra een skelet stilstaat, start een schiet-timer die elke paar seconden een botprojectiel richting de speler gooit. Daarnaast houdt het level bij hoeveel skeletten er tegelijk op het scherm staan, zodat het spawnen stopt bij het maximum en pas verdergaat als er eentje verslagen is.",
         },
       },
     ],
-    link: "https://rhijnl.itch.io/prism-break",
+    link: null,
   },
+
 ];
 
 export function getProject(slug) {
