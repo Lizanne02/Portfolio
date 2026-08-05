@@ -8,11 +8,17 @@ export default function About() {
       <h2 className="section-title">About Me</h2>
       <p className="section-subtitle">A quick introduction</p>
 
-      <div className="about hex-frame">
-        <div className="hex-frame__inner">
-          {profile.about.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+      <div className="about-layout">
+        <div className="about-portrait">
+          <img src="/images/portrait.jpg" alt={`Portrait of ${profile.fullName}`} />
+        </div>
+
+        <div className="about hex-frame">
+          <div className="hex-frame__inner">
+            {profile.about.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
 

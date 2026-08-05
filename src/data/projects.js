@@ -38,7 +38,7 @@ export const projects = [
     tools: ["Unity", "C#", "XR Interaction Toolkit", "Blender", "Quixel Mixer"],
     period: "2026",
     summary:
-      "Redesign of a VR menu and a modular 3D office environment for the Immersive Tech Studio — from research and A/B tests to a working world-space menu in Unity.",
+      "Redesign of a VR menu and a modular 3D office environment for the Immersive Tech Studio, from research and A/B tests to a working world-space menu in Unity.",
     highlights: [
       "Designed a fully data-driven VR menu that scales to 50+ processes without hand-built UI.",
       "Ran UX research and A/B tests to validate menu concepts with real users.",
