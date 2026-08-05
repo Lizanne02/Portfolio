@@ -5,7 +5,7 @@ export default function ProjectTile({ project }) {
     <Link
       to={`/projects/${project.slug}`}
       className="project-tile hex-frame"
-      aria-label={`Bekijk project: ${project.title}`}
+      aria-label={`View project: ${project.title}`}
     >
       <div className="hex-frame__inner">
         <div className="thumb">

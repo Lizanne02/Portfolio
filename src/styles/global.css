@@ -10,7 +10,7 @@
   --gold: #c8aa6e;
   --gold-bright: #f0e6d2;
   --gold-dark: #785a28;
-  --accent: #f492c9; /* zacht roze — de accentkleur van de site */
+  --accent: #f492c9; /* soft pink — the site's accent color */
   --accent-deep: #c2559b;
   --text: #a09b8c;
   --text-bright: #f0e6d2;
@@ -169,7 +169,7 @@ img {
   box-shadow: 0 0 45px rgba(244, 146, 201, 0.25);
 }
 
-/* Draaiende sierring + stille buitenring om het portret */
+/* Rotating decorative ring + static outer ring around the portrait */
 .hero-portrait::before {
   content: "";
   position: absolute;

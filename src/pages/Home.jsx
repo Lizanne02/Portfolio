@@ -12,9 +12,9 @@ export default function Home() {
 
       <section id="projects" className="container">
         <HexDivider />
-        <h2 className="section-title">Projecten</h2>
+        <h2 className="section-title">Projects</h2>
         <p className="section-subtitle">
-          Klik op een tegel om meer over een project te lezen
+          Click a tile to read more about a project
         </p>
 
         <div className="project-grid">

@@ -5,8 +5,8 @@ export default function About() {
   return (
     <section id="about" className="container">
       <HexDivider />
-      <h2 className="section-title">Over Mij</h2>
-      <p className="section-subtitle">Even voorstellen</p>
+      <h2 className="section-title">About Me</h2>
+      <p className="section-subtitle">A quick introduction</p>
 
       <div className="about hex-frame">
         <div className="hex-frame__inner">

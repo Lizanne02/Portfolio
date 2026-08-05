@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="hero container">
       <div className="hero-portrait">
-        <img src="/images/portrait.jpg" alt={`Portret van ${profile.name}`} />
+        <img src="/images/portrait.jpg" alt={`Portrait of ${profile.name}`} />
       </div>
       <h1>{profile.name}</h1>
       <p className="tagline">{profile.tagline}</p>

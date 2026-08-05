@@ -23,8 +23,8 @@ export default function App() {
             LIZANNE VAN RHIJN<span>.COM</span>
           </Link>
           <nav className="site-nav">
-            <Link to="/#about">Over mij</Link>
-            <Link to="/#projects">Projecten</Link>
+            <Link to="/#about">About me</Link>
+            <Link to="/#projects">Projects</Link>
           </nav>
         </div>
       </header>

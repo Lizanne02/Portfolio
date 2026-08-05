@@ -1,72 +1,72 @@
 /**
- * ✏️ ALLE projectinhoud staat in dit bestand.
+ * ✏️ ALL project content lives in this file.
  *
- * Een nieuw project toevoegen:
- *   1. Kopieer een projectblok (van { tot en met },) en plak het in de lijst.
- *   2. Geef het een unieke `slug` — dat wordt de URL: /projects/<slug>
- *   3. Zet de afbeeldingen in /public/images/ en pas de paden aan.
- * De tegel en de projectpagina worden automatisch aangemaakt.
+ * Adding a new project:
+ *   1. Copy a project block (from { through },) and paste it into the list.
+ *   2. Give it a unique `slug` — that becomes the URL: /projects/<slug>
+ *   3. Put the images in /public/images/ and update the paths.
+ * The tile and the project page are generated automatically.
  *
- * Veldenoverzicht:
- *   slug         unieke URL-naam, kleine-letters-met-streepjes
- *   title        naam van het project
- *   tagline      kort genre/type, komt onder de titel
- *   thumbnail    afbeelding op de tegel (16:9 werkt het mooist)
- *   banner       grote afbeelding op de projectpagina (21:9 werkt het mooist)
- *   role         wat JIJ deed in het project
- *   tools        lijst van engines/talen/tools
- *   period       wanneer het gemaakt is
- *   summary      één of twee zinnen op de tegel
- *   description  intro-alinea's voor de projectpagina
- *   sections     optionele extra secties, elk met:
- *                  heading   koptekst
- *                  text      lijst van alinea's
- *                  list      lijst van bullets
+ * Field overview:
+ *   slug         unique URL name, lowercase-with-dashes
+ *   title        name of the project
+ *   tagline      short genre/type, shown under the title
+ *   thumbnail    image on the tile (16:9 works best)
+ *   banner       large image on the project page (21:9 works best)
+ *   role         what YOU did on the project
+ *   tools        list of engines/languages/tools
+ *   period       when it was made
+ *   summary      one or two sentences on the tile
+ *   description  intro paragraphs for the project page
+ *   sections     optional extra sections, each with:
+ *                  heading   section heading
+ *                  text      list of paragraphs
+ *                  list      list of bullets
  *                  image     { src, alt, caption }
  *                  code      { caption, snippet, explanation }
- *   link         optionele URL (itch.io, GitHub…) of null
+ *   link         optional URL (itch.io, GitHub…) or null
  */
 
 export const projects = [
   {
     slug: "orginsights",
-    title: "OrgInsights",
-    tagline: "VR-menu redesign & 3D-omgeving",
+    title: "Organisational Insights",
+    tagline: "VR menu redesign & 3D environment",
     thumbnail: "/images/orginsights-guidance.png",
     banner: "/images/orginsights-guidance.png",
-    role: "VR-interactieontwerp, UX-onderzoek, 3D-omgeving & C#-implementatie",
+    role: "VR interaction design, UX research, 3D environment & C# implementation",
     tools: ["Unity", "C#", "XR Interaction Toolkit", "Blender", "Quixel Mixer"],
     period: "2026",
     summary:
-      "Redesign van een VR-menu en een modulaire 3D-kantooromgeving voor de Immersive Tech Studio — van onderzoek en A/B-tests tot een werkend world-space menu in Unity.",
+      "Redesign of a VR menu and a modular 3D office environment for the Immersive Tech Studio — from research and A/B tests to a working world-space menu in Unity.",
     description: [
-      "Voor de Immersive Tech Studio heb ik gewerkt aan het redesignen van een VR-menu om het gebruiksvriendelijker, toegankelijker en schaalbaar te maken voor grote hoeveelheden data. Het bestaande overlay-menu werkte niet goed binnen VR, omdat gebruikers het menu niet zelfstandig konden openen en het overzicht verloren ging bij veel opties.",
-      "Om dit op te lossen heb ik eerst onderzoek gedaan naar verschillende VR-menusystemen, zoals world-space, view-fixed en radiale menu's. Daarnaast analyseerde ik bestaande VR-games zoals Beat Saber en Half-Life: Alyx om te begrijpen welke interactiepatronen intuïtief werken binnen virtual reality. Uit dit onderzoek bleek dat een schaalbaar world-space/view-fixed menu de beste oplossing was voor complexe interfaces met veel processen en stappen.",
-      "Vervolgens heb ik twee menuconcepten ontworpen en getest via een A/B-test met gebruikers. Hieruit bleek dat één compact radiaal menu sneller begrepen werd, maar dat een uitgebreider gestructureerd menu beter werkte bij 50+ processen. Op basis van deze resultaten heb ik een definitief menu ontworpen dat overzichtelijk bleef, ook bij grotere datasets.",
-      "Tijdens gebruikerstesten bleek dat de meerderheid van de testers het menu duidelijk en makkelijk te gebruiken vond, waarmee het doel van een toegankelijker en gebruiksvriendelijker VR-menu succesvol werd behaald.",
+      "For the Immersive Tech Studio my team worked on creating a mixed-reality experience that lets users navigate organisational structures and HR processes in immersive space. I worked on redesigning a VR menu to make it more user-friendly, accessible, and scalable for large amounts of data. The existing overlay menu didn't work well in VR, because users couldn't open the menu on their own and the overview got lost with many options.",
+      "To solve this, I first researched different VR menu systems, such as world-space, view-fixed, and radial menus. I also analyzed existing VR games such as Beat Saber and Half-Life: Alyx to understand which interaction patterns work intuitively within virtual reality. This research showed that a scalable world-space/view-fixed menu was the best solution for complex interfaces with many processes and steps.",
+      "Next, I designed two menu concepts and tested them via an A/B test with users. This showed that one compact radial menu was understood faster, but that a more extensive structured menu worked better with 50+ processes. Based on these results, I designed a final menu that stayed clear even with larger datasets.",
+      "During user testing, the majority of testers found the menu clear and easy to use, successfully achieving the goal of a more accessible and user-friendly VR menu.",
     ],
     sections: [
       {
-        heading: "Het world-space menu",
+        heading: "The world-space menu",
         text: [
-          "Het menu is volledig world-space in plaats van een fullscreen overlay. Het kan op elk moment geopend en gesloten worden met een knop op de controller, waarna het, waar de speler ook staat, voor hun ogen wordt geopend, waarbij dit hiervoor alleen mogelijk was via de host laptop waarop de game runde. ",
+          "The menu is fully world-space instead of a fullscreen overlay. It can be opened and closed at any time with a button on the controller, after which it opens right in front of the player wherever they're standing — whereas before, this was only possible via the host laptop running the game.",
         ],
         list: [
-          "Bij het openen zijn alleen de folders zichtbaar; processen en stappen verschijnen pas na een keuze, zodat het overzicht blijft.",
-          "De speler kan meerdere toggles tegelijk aan- en uitzetten, maar ziet altijd de processen en stappen van de laatst geactiveerde optie.",
-          "Elk onderdeel heeft een knop die alle geactiveerde toggles in dat paneel weer deactiveert.",
-          "Het menu laat altijd zien welke folder en welk proces je op dat moment open hebt staan.",
-          "Duidelijke kleurvakken en titels per onderdeel voorkomen verwarring; scrollbars houden het menu bruikbaar als het aantal opties groeit.",
-          "De achtergrond is doorzichtig, zodat je de effecten van het selecteren van opties direct in de omgeving ziet.",
+          "When opened, only the folders are visible; processes and steps only appear after a selection, keeping the overview clear.",
+          "The player can turn multiple toggles on and off at the same time, but always sees the processes and steps of the most recently activated option.",
+          "Each part has a button that deactivates all activated toggles in that panel.",
+          "The menu always shows which folder and which process you currently have open.",
+          "Clear color blocks and titles per section prevent confusion; scrollbars keep the menu usable as the number of options grows.",
+          "The background is transparent, so you can see the effects of selecting options directly in the environment.",
         ],
         image: {
           src: "/images/orginsights-worldspace-menu.png",
-          alt: "Het world-space VR-menu met Folders, Processes en Steps panelen",
+          alt: "The world-space VR menu with Folders, Processes, and Steps panels",
           caption:
-            "Het world-space menu in VR: folders, processen en stappen in aparte panelen, met een doorzichtige achtergrond.",
+            "The world-space menu in VR: folders, processes, and steps in separate panels, with a transparent background.",
         },
         code: {
-          caption: "Uit MenuFollowHead.cs — world-fixed of view-fixed met één optie",
+          caption: "From MenuFollowHead.cs — world-fixed or view-fixed with a single option",
           snippet: `[Header("View-fixed?")]
 [SerializeField] private bool followWhileOpen = true;
 
@@ -78,8 +78,8 @@ private void LateUpdate()
 
 private void MoveMenuInFrontOfHead(bool smooth)
 {
-    // Alleen de horizontale kijkrichting gebruiken, zodat het menu
-    // niet scheef hangt als de speler omhoog of omlaag kijkt
+    // Only use the horizontal look direction, so the menu
+    // doesn't tilt when the player looks up or down
     Vector3 forward = head.forward;
     forward.y = 0f;
     forward.Normalize();
@@ -101,16 +101,16 @@ private void MoveMenuInFrontOfHead(bool smooth)
     }
 }`,
           explanation:
-            "Eén instelbare boolean bepaalt of het menu op zijn plek blijft staan (world-fixed) of meebeweegt met het hoofd (view-fixed). Bij het openen wordt het menu direct vóór de speler op ooghoogte geplaatst. Uit onderzoek en testen bleek dat view-fixed een oncomfortabele ervaring gaf voor spelers, en deze optie is later dus compleet weggelaten.",
+            "A single configurable boolean determines whether the menu stays in place (world-fixed) or moves along with the head (view-fixed). When opened, the menu is placed directly in front of the player at eye level. Research and testing showed that view-fixed gave players an uncomfortable experience, so this option was later dropped entirely.",
         },
       },
       {
-        heading: "Schaalbaar tot 50+ processen",
+        heading: "Scalable to 50+ processes",
         text: [
-          "Uit het onderzoek bleek dat de interface moest kunnen groeien tot tientallen processen met elk hun eigen stappen. Daarom is de menu-inhoud volledig data-gedreven opgezet: de structuur van folders, processen en stappen wordt in de Unity Inspector gevuld, en de UI bouwt zichzelf tijdens runtime op uit toggle-prefabs.",
+          "The research showed that the interface needed to be able to grow to dozens of processes, each with their own steps. That's why the menu content is fully data-driven: the structure of folders, processes, and steps is filled in via the Unity Inspector, and the UI builds itself at runtime from toggle prefabs.",
         ],
         code: {
-          caption: "Uit ProcessMenuManager.cs — de datastructuur achter het menu",
+          caption: "From ProcessMenuManager.cs — the data structure behind the menu",
           snippet: `[System.Serializable]
 public class FolderDefinition
 {
@@ -129,11 +129,11 @@ public class ProcessDefinition
 public class StepDefinition
 {
     public string stepName;
-    public Graphic[] highlightGraphics;   // UI die oplicht
-    public DeskEffect[] deskEffects;      // effecten in de omgeving
+    public Graphic[] highlightGraphics;   // UI that lights up
+    public DeskEffect[] deskEffects;      // effects in the environment
 }
 
-// De UI wordt hieruit op runtime opgebouwd:
+// The UI is built from this at runtime:
 Toggle t = Instantiate(stepTogglePrefab, stepsParent);
 SetToggleLabel(t, stepDef.stepName);
 t.onValueChanged.AddListener(toggleIsOn =>
@@ -142,47 +142,47 @@ t.onValueChanged.AddListener(toggleIsOn =>
     ApplyStepVisuals(folderIndex, processIndex, stepIndex, toggleIsOn, captured);
 });`,
           explanation:
-            "Nieuwe processen of stappen toevoegen betekent alleen data invullen. Er hoeft geen UI met de hand gebouwd te worden. Elke stap weet zelf welke UI-elementen moeten oplichten en welke effecten in de omgeving bij hem horen, en de selectiestatus wordt per folder, proces en stap onthouden.",
+            "Adding new processes or steps means just filling in data — no UI needs to be built by hand. Each step knows for itself which UI elements should light up and which effects in the environment belong to it, and the selection state is remembered per folder, process, and step.",
         },
       },
       {
-        heading: "De modulaire kantooromgeving",
+        heading: "The modular office environment",
         text: [
-          "Voor dit project heb ik ook een modulaire kantooromgeving ontworpen en uitgewerkt in Blender en Quixel Mixer, bedoeld voor gebruik binnen een realtime 3D/VR-omgeving. Ik begon met het maken van een floorplan en moodboard, waarbij ik rekening hield met zowel functionele eisen als performance-optimalisatie, zoals herbruikbare assets, low-poly modelling en een logische scene-structuur.",
-          "Tijdens het proces ontdekte ik dat één groot model niet efficiënt werkte voor UV-unwrapping en performance. Daarom heb ik het ontwerp opgesplitst in losse, herbruikbare onderdelen (prefabs) zoals muren, deuren en glaswanden, die later flexibel in Unity geplaatst konden worden. Vervolgens heb ik de modellen geoptimaliseerd met UV-unwrapping, baked ID masks en texture-workflows in Quixel Mixer om verschillende materialen toe te passen zonder performanceverlies.",
-          "Het eindresultaat was een schaalbare en geoptimaliseerde kantooromgeving met modulaire assets, realistische materialen en een workflow die geschikt is voor verdere uitbreiding binnen realtime applicaties en VR-projecten.",
+          "For this project, I also designed and built a modular office environment in Blender and Quixel Mixer, intended for use within a realtime 3D/VR environment. I started by creating a floorplan and moodboard, taking into account both functional requirements and performance optimization, such as reusable assets, low-poly modeling, and a logical scene structure.",
+          "During the process, I discovered that one large model wasn't efficient for UV unwrapping and performance. So I split the design into separate, reusable parts (prefabs) such as walls, doors, and glass panels, which could later be placed flexibly in Unity. I then optimized the models with UV unwrapping, baked ID masks, and texture workflows in Quixel Mixer to apply different materials without losing performance.",
+          "The end result was a scalable and optimized office environment with modular assets, realistic materials, and a workflow suited for further expansion within realtime applications and VR projects.",
         ],
         image: {
           src: "/images/orginsights-modular-environment.png",
-          alt: "Modulaire kantoor-assets: een tafel en een muursegment met kastruimtes, gemaakt in Blender",
+          alt: "Modular office assets: a table and a wall segment with cabinet space, made in Blender",
           caption:
-            "Voorbeelden van de modulaire assets uit de kantooromgeving: een tafel en een muursegment met kastruimtes.",
+            "Examples of the modular assets from the office environment: a table and a wall segment with cabinet space.",
         },
       },
       {
-        heading: "Guidance door de omgeving",
+        heading: "Guidance through the environment",
         text: [
-          "Wanneer een stap in het menu wordt geactiveerd, worden de bijbehorende bureaus, die de betrokken en onderdelen in die stap vertegenwoordigen, op meerdere manieren uitgelicht: een paarse highlight, zwevende particles erboven en een oplichtend pad dat naar de bureaus leidt. Zo wordt de gebruiker door de omgeving naar de juiste plekken geleid.",
-          "Deze effecten zijn eerst grondig onderzocht met testen, en bleken uiteindelijk de meeste aandacht van de gebruiker te trekken. De highlight is een doorzichtige paarse kubus op de plek van het bureau. Het particle-effect uit Unity zweeft er net boven en beweegt langzaam naar beneden om wat extra aandacht te trekken. Het pad is een line renderer met een glowing materiaal dat vanaf de positie van de speler naar de bureaus loopt; bij meerdere bureaus verschijnen meerdere paden. Het pad past zich elke tien seconden aan de nieuwe positie van de speler aan, zodat het altijd blijft kloppen, ook als je door de omgeving loopt. Buiten een bepaald bereik verdwijnen de effecten en zodra je weer dichterbij komt verschijnen ze opnieuw.",
+          "When a step in the menu is activated, the relevant desks — which represent the people and parts involved in that step — are highlighted in several ways: a purple highlight, floating particles above them, and a glowing path leading to the desks. This guides the user through the environment to the right spots.",
+          "These effects were thoroughly tested beforehand, and turned out to draw the most attention from users. The highlight is a transparent purple cube at the desk's location. Unity's particle effect floats just above it and moves slowly downward to draw a bit of extra attention. The path is a line renderer with a glowing material that runs from the player's position to the desks; with multiple desks, multiple paths appear. The path updates to the player's new position every ten seconds, so it always stays accurate, even as you walk through the environment. Outside a certain range the effects disappear, and they reappear once you get close again.",
         ],
         image: {
           src: "/images/orginsights-guidance.png",
-          alt: "VR-omgeving met paarse highlight op een bureau, particles en oplichtende paden vanaf de controller",
+          alt: "VR environment with a purple highlight on a desk, particles, and glowing paths from the controller",
           caption:
-            "De guidance-effecten in actie: highlight, particles en oplichtende paden die de gebruiker naar de juiste bureaus leiden.",
+            "The guidance effects in action: highlight, particles, and glowing paths leading the user to the right desks.",
         },
         code: {
-          caption: "Uit DeskEffect.cs — het pad dat met de speler meebeweegt",
+          caption: "From DeskEffect.cs — the path that moves along with the player",
           snippet: `private void UpdatePath()
 {
     updateTimer += Time.deltaTime;
-    if (updateTimer >= updateInterval)   // elke 10 seconden
+    if (updateTimer >= updateInterval)   // every 10 seconds
     {
         updateTimer = 0;
         SetNewStartPoint(currentPlayer);
     }
 
-    // Startpunt glijdt soepel naar de nieuwe positie van de speler
+    // Start point glides smoothly to the player's new position
     startPoint = Vector3.Lerp(startPoint, targetStartPoint,
         followSpeed * Time.deltaTime);
 
@@ -192,8 +192,8 @@ t.onValueChanged.AddListener(toggleIsOn =>
     pathLine.SetPosition(1, end);
 }
 
-// Meerdere stappen kunnen hetzelfde bureau aanwijzen,
-// daarom een teller in plaats van een simpele aan/uit-bool
+// Multiple steps can point to the same desk,
+// hence a counter instead of a simple on/off bool
 public void AddRequest(Transform player)
 {
     activeRequests++;
@@ -205,7 +205,7 @@ public void RemoveRequest()
     activeRequests = Mathf.Max(0, activeRequests - 1);
 }`,
           explanation:
-            "Elk bureau-effect telt hoeveel actieve stappen hem nodig hebben: pas als de laatste stap wordt uitgezet, verdwijnen de highlight, particles en het pad. Het startpunt van het pad beweegt met een lerp soepel naar de nieuwe positie van de speler in plaats van te verspringen. Voor elk effect is een prefab gemaakt die als child onder het bureau-object wordt geplaatst.",
+            "Each desk effect keeps count of how many active steps need it: only once the last step is turned off do the highlight, particles, and path disappear. The path's start point moves smoothly to the player's new position via a lerp instead of jumping. A prefab was made for each effect and placed as a child under the desk object.",
         },
       },
     ],
@@ -217,14 +217,14 @@ public void RemoveRequest()
     tagline: "3D Action Prototype",
     thumbnail: "/images/prism-break.gif",
     banner: "/images/prism-break.png",
-    role: "Solo-ontwikkelaar",
+    role: "Solo developer",
     tools: ["Unity", "C#"],
     period: "2025",
     summary:
-      "Soloprototype in Unity en C#: beschiet de enemy met kleurkogels om hem te verslaan, terwijl je rondvliegt met een jetpack met gelimiteerde fuel.",
+      "Solo prototype in Unity and C#: shoot the enemy with color bullets to defeat it, while flying around with a jetpack with limited fuel.",
     description: [
-      "Dit is een prototype van een game die ik zelf gemaakt heb in Unity en C#. Het is de bedoeling dat je de enemy beschiet met kleurkogels, zodat je hem een kleur kan geven en hem daarmee kan verslaan. Tegelijkertijd vlieg je met een jetpack met gelimiteerde fuel. De enemy verandert in de kleur waarmee hij beschoten wordt, en er kan nooit twee keer achter elkaar met dezelfde kleur geschoten worden. Als je zelf wordt geraakt, verlies je health én je kleur.",
-      "Als je alle collectibles hebt verzameld, ben je vijf seconden invincible: je wordt felroze en kunt niet geraakt worden door de enemy. Daarna respawnen de collectibles weer.",
+      "This is a prototype of a game I made myself in Unity and C#. The idea is that you shoot the enemy with color bullets, giving it a color and defeating it that way. At the same time, you fly around with a jetpack with limited fuel. The enemy changes to the color it's shot with, and you can never shoot the same color twice in a row. If you get hit yourself, you lose health and your color.",
+      "Once you've collected all the collectibles, you become invincible for five seconds: you turn bright pink and can't be hit by the enemy. After that, the collectibles respawn.",
     ],
     sections: [
       {
@@ -232,23 +232,23 @@ public void RemoveRequest()
         images: [
           {
             src: "/images/prism-break.gif",
-            alt: "Gameplay uit Prism Break: de speler vliegt met een jetpack over een platform met pilaren",
-            caption: "Rondvliegen met de jetpack tussen de pilaren.",
+            alt: "Gameplay from Prism Break: the player flies with a jetpack over a platform with pillars",
+            caption: "Flying around with the jetpack between the pillars.",
           },
           {
             src: "/images/prism-break-2.gif",
-            alt: "Gameplay uit Prism Break: close-up van de speler tussen twee pilaren",
-            caption: "De speler van dichterbij tussen de pilaren.",
+            alt: "Gameplay from Prism Break: close-up of the player between two pillars",
+            caption: "The player up close between the pillars.",
           },
         ],
       },
       {
-        heading: "Nooit twee keer dezelfde kleur",
+        heading: "Never the same color twice",
         text: [
-          "De kern van het prototype is de kleur-mechaniek: elke kogel krijgt een willekeurige kleur, maar nooit dezelfde als de vorige. Zo blijft de speler wisselen en kan er geen kleur 'gespamd' worden.",
+          "The core of the prototype is the color mechanic: every bullet gets a random color, but never the same as the previous one. This keeps the player switching and prevents any color from being 'spammed'.",
         ],
         code: {
-          caption: "Uit ShootingController.cs — de kleurkogels",
+          caption: "From ShootingController.cs — the color bullets",
           snippet: `void Shoot()
 {
     GameObject bullet = Instantiate(bulletPrefab,
@@ -261,7 +261,7 @@ public void RemoveRequest()
     bullet.GetComponent<Bullet>().bulletColor = chosenColor;
     bullet.GetComponent<Renderer>().material.color = chosenColor;
 
-    // Zorg ervoor dat de kogel in de richting van de camera vliegt
+    // Make sure the bullet flies in the direction of the camera
     rb.linearVelocity = cameraTransform.forward * bulletSpeed;
 }
 
@@ -276,23 +276,23 @@ Color ChooseDifferentColor()
     return chosenColor;
 }`,
           explanation:
-            "De do-while-lus runt net zo lang een willekeurige kleur tot die verschilt van de vorige. De kogel geeft zijn kleur door aan de enemy zodra die geraakt wordt.",
+            "The do-while loop keeps rolling a random color until it differs from the previous one. The bullet passes its color on to the enemy as soon as it's hit.",
         },
       },
       {
-        heading: "Jetpack met fuel-management",
+        heading: "Jetpack with fuel management",
         text: [
-          "De jetpack verbruikt fuel zolang je vliegt en vult langzaam weer bij zodra je op de grond staat. Op is op, dan valt de speler terug met extra zwaartekracht bij het dalen, zodat het vliegen snappy blijft voelen in plaats van zweverig.",
+          "The jetpack consumes fuel as long as you're flying and slowly refills once you're back on the ground. Once it's empty, the player falls with extra gravity while descending, so flying stays snappy instead of floaty.",
         ],
         code: {
-          caption: "Uit PlayerController.cs — fuel verbruiken en bijvullen",
-          snippet: `// Als spatie ingedrukt is en er brandstof is, verminder brandstof
+          caption: "From PlayerController.cs — consuming and refilling fuel",
+          snippet: `// If space is pressed and there's fuel, reduce fuel
 if (isSpacePressed && currentFuel > 0)
 {
     currentFuel -= fuelConsumptionRate * Time.deltaTime;
     if (currentFuel <= 0)
     {
-        currentFuel = 0; // Stop met vliegen als de brandstof op is
+        currentFuel = 0; // Stop flying when the fuel runs out
     }
 }
 
@@ -302,7 +302,7 @@ if (!isSpacePressed && currentFuel < maxFuel)
     if (currentFuel > maxFuel) currentFuel = maxFuel;
 }`,
           explanation:
-            "Verbruik en bijvullen zijn allebei instelbaar via de Inspector, zodat de balans van het vliegen makkelijk te tweaken was tijdens het testen.",
+            "Both consumption and refill rate are configurable via the Inspector, making it easy to tweak the flying balance during testing.",
         },
       },
     ],
@@ -313,40 +313,40 @@ if (!isSpacePressed && currentFuel < maxFuel)
     tagline: "3D Arcade Game",
     thumbnail: "/images/stoplight-chaos.gif",
     banner: "/images/stoplight-chaos.png",
-    role: "Gameplay-programmering: stoplichten & laser",
+    role: "Gameplay programming: traffic lights & laser",
     tools: ["Unity", "C#"],
     period: "2024",
     summary:
-      "Arcade game in teamverband gemaakt in Unity en C#. Ik bouwde de stoplichten die dynamisch van positie wisselen, het sound-design en de laser die op de speler schiet.",
+      "Arcade game made as a team in Unity and C#. I built the traffic lights that dynamically switch position, the sound design, and the laser that shoots at the player.",
     description: [
-      "Deze game is gemaakt in teamverband in Unity en C#. Persoonlijk heb ik gewerkt aan de stoplichten zelf, die dynamisch switchen van positie, het sound-design en het schieten van de laser richting de player. Je kunt over de laser heenspringen, maar verliest health als je geraakt wordt.",
-      "De boss die je uiteindelijk moet verslaan door deze te slaan is expres groter gemaakt en heeft een andere kleur gekregen, zodat deze duidelijk als baas te onderscheiden is van de andere stoplichten.",
+      "This game was made as a team in Unity and C#. Personally, I worked on the traffic lights themselves, which dynamically switch position, the sound design, and firing the laser at the player. You can jump over the laser, but you lose health if you get hit.",
+      "The boss you eventually have to defeat by hitting it was deliberately made bigger and given a different color, so it's clearly distinguishable as the boss from the other traffic lights.",
     ],
     sections: [
       {
         heading: "Gameplay",
         image: {
           src: "/images/stoplight-chaos.gif",
-          alt: "Gameplay uit Stoplight Chaos: de stoplichten wisselen van kleur en positie terwijl auto's voorbijrijden",
+          alt: "Gameplay from Stoplight Chaos: the traffic lights change color and position while cars drive past",
           caption:
-            "De stoplichten wisselen van kleur en positie, elk met een eigen aanvalsfase.",
+            "The traffic lights change color and position, each with its own attack phase.",
         },
         // text: [
-        //   "Spring over de rijdende auto's om niet te vallen, ontwijk de lasers van het kwaadaardige stoplicht en versla uiteindelijk de boss met je zwaard. De game is direct in de browser te spelen via de knop hieronder.",
+        //   "Jump over the moving cars to avoid falling, dodge the lasers from the evil traffic light, and finally defeat the boss with your sword. The game can be played directly in the browser via the button below.",
         // ],
         // list: [
-        //   "WASD — bewegen",
-        //   "Spatiebalk — springen",
-        //   "Linkermuisknop — zwaardaanval",
+        //   "WASD — move",
+        //   "Spacebar — jump",
+        //   "Left mouse button — sword attack",
         // ],
       },
       {
-        heading: "Stoplichten die de baas zijn",
+        heading: "Traffic lights that are the boss",
         text: [
-          "Het stoplicht zelf dient als een baas: het wisselt automatisch van kleur op instelbare tijden, en elke kleur activeert een eigen aanvalsfase van de boss. Bij het wisselen schakelen zowel de materialen als echte lichtbronnen mee, zodat je altijd in één oogopslag ziet welke fase actief is.",
+          "The traffic light itself acts as a boss: it automatically switches color at configurable intervals, and each color activates its own attack phase for the boss. When switching, both the materials and actual light sources switch along with it, so you can always tell at a glance which phase is active.",
         ],
         code: {
-          caption: "Uit TrafficLightController.cs — elke kleur is een aanvalsfase",
+          caption: "From TrafficLightController.cs — each color is an attack phase",
           snippet: `[Header("Auto Mode Settings")]
 public bool autoSwitch = true;
 public float redTime = 3f;
@@ -357,7 +357,7 @@ void SetLight(LightColor color)
 {
     currentColor = color;
 
-    // Elke kleur activeert een eigen aanvalsfase van de boss
+    // Each color activates its own attack phase for the boss
     greenAttack.isActive = false;
     orangeAttack.isActive = false;
     redAttack.isActive = false;
@@ -378,25 +378,25 @@ void SetLight(LightColor color)
             break;
     }
 
-    // Materialen én echte lichtbronnen schakelen mee
+    // Materials and actual light sources switch along too
     greenRenderer.material = (color == LightColor.GREEN) ? greenOn : greenOff;
     greenLight.enabled = (color == LightColor.GREEN);
-    // ... en hetzelfde voor geel en rood
+    // ... and the same for yellow and red
 }`,
           explanation:
-            "De tijden per kleur zijn instelbaar in de Inspector, zodat de moeilijkheid makkelijk te tweaken was tijdens playtests. De aanvalsfases (groen, oranje, rood) zijn losse componenten die aan- en uitgezet worden. Mieuwe fases toevoegen kan zonder deze controller te herschrijven.",
+            "The timing per color is configurable in the Inspector, making it easy to tweak the difficulty during playtests. The attack phases (green, orange, red) are separate components that get turned on and off. New phases can be added without rewriting this controller.",
         },
       },
       {
-        heading: "Lasers uit een object pool",
+        heading: "Lasers from an object pool",
         text: [
-          "De boss schiet lasers richting de positie van de speler. Vóór elk schot klinkt eerst een oplaadgeluid als waarschuwing, zodat je een seconde hebt om weg te springen. De lasers zelf worden niet steeds opnieuw aangemaakt maar hergebruikt uit een object pool, wat beter is voor de performance van de game",
+          "The boss fires lasers at the player's position. Before each shot, a charge-up sound plays as a warning, giving you a second to jump out of the way. The lasers themselves aren't created anew each time but reused from an object pool, which is better for the game's performance.",
         ],
         code: {
-          caption: "Uit BossAttack.cs & LaserPool.cs — richten, schieten, hergebruiken",
+          caption: "From BossAttack.cs & LaserPool.cs — aiming, firing, reusing",
           snippet: `private IEnumerator FireLaserWithSound(Vector3 target)
 {
-    PlayChargeUpSound();                 // waarschuwing voor de speler
+    PlayChargeUpSound();                 // warning for the player
     yield return new WaitForSeconds(1f);
     PlayLaserSound();
 
@@ -404,7 +404,7 @@ void SetLight(LightColor color)
     Quaternion laserRotation =
         Quaternion.LookRotation(shootDirection) * Quaternion.Euler(90, 0, 0);
 
-    GameObject laser = laserPool.GetLaser();   // hergebruik uit de pool
+    GameObject laser = laserPool.GetLaser();   // reuse from the pool
     laser.transform.position = firePoint.position;
     laser.transform.rotation = laserRotation;
     laser.GetComponent<Rigidbody>().linearVelocity =
@@ -421,11 +421,11 @@ public GameObject GetLaser()
         laser.SetActive(true);
         return laser;
     }
-    // Extra laser maken als de pool leeg is
+    // Create an extra laser if the pool is empty
     return Instantiate(laserPrefab);
 }`,
           explanation:
-            "Uitgeschoten lasers gaan na een raak schot of vijf seconden terug de pool in. Een laser kan met het zwaard teruggekaatst worden. Een gedeflecte laser die de boss raakt, doet schade aan de boss zelf.",
+            "Fired lasers go back into the pool after a hit or after five seconds. A laser can be deflected with the sword. A deflected laser that hits the boss damages the boss itself.",
         },
       },
     ],
@@ -437,34 +437,34 @@ public GameObject GetLaser()
     tagline: "2D Top-down Shooter",
     thumbnail: "/images/graveyard-madness.png",
     banner: "/images/graveyard-madness.png",
-    role: "Leveldesign, gamestates & gameplay-systemen",
+    role: "Level design, game states & gameplay systems",
     tools: ["MonoGame", "C#"],
     period: "2024",
     summary:
-      "Top-down shooter in een spookhuis, gemaakt in teamverband in C# en MonoGame. Ik ontwierp de levels en bouwde onder andere de win- en verliessystemen en het vijandgedrag.",
+      "Top-down shooter in a haunted house, made as a team in C# and MonoGame. I designed the levels and built the win/lose systems and enemy behavior, among other things.",
     description: [
-      "Deze game is in teamverband gemaakt in C# en MonoGame. Persoonlijk heb ik de levels gedesigned, samen met de enemy en het schietpatroon. De game wordt moeilijker met elk level, waarin de enemy in het laatste level zelfs heen en weer beweegt. Het doel is om de enemy te beschieten, terwijl je hun aanvallen ontwijkt.",
+      "This game was made as a team in C# and MonoGame. Personally, I designed the levels, along with the enemy and its shooting pattern. The game gets harder with each level, and in the last level the enemy even moves back and forth. The goal is to shoot the enemy while dodging their attacks.",
     ],
     sections: [
       {
-        heading: "Mijn bijdrage",
+        heading: "My contribution",
         list: [
-          "Player movement en de boundaries van de map",
-          "Startscreen, win- en losescreen met restart-knop",
-          "Win- en losecondities",
-          "Gamestates voor level 1 en 2",
-          "Skeletons die naar een willekeurige positie bewegen en daar schieten",
-          "Een maximum aantal skeletons tegelijk op het scherm",
-          "Query naar de database om je voortgang (behaalde levels) op te slaan",
+          "Player movement and the map boundaries",
+          "Start screen, win and lose screen with restart button",
+          "Win and lose conditions",
+          "Game states for level 1 and 2",
+          "Skeletons that move to a random position and shoot from there",
+          "A maximum number of skeletons on screen at once",
+          "A database query to save your progress (levels completed)",
         ],
       },
       {
-        heading: "Wincondities die echt kloppen",
+        heading: "Win conditions that actually work",
         text: [
-          "Je wint pas als je alle vijanden hebt verslagen. Dat klinkt simpel, maar mijn eerste versies deden het net verkeerd: eerst werden bij verlies alle vijanden meteen mee 'gedood' waardoor je ook direct het winscreen zag, en daarna won je al zodra het maximale aantal vijanden gespawnd was zonder ze echt te verslaan. De oplossing was een teller die alleen bij een echte kill omhoog gaat.",
+          "You only win once you've defeated all enemies. That sounds simple, but my first versions got it slightly wrong: at first, losing 'killed' all enemies at once, which immediately triggered the win screen too, and later you'd win as soon as the maximum number of enemies had spawned without actually defeating them. The fix was a counter that only goes up on an actual kill.",
         ],
         code: {
-          caption: "Uit Enemy.cs — de winconditie",
+          caption: "From Enemy.cs — the win condition",
           snippet: `public static int EnemiesKilled = 0;
 
 public override void Die()
@@ -477,20 +477,20 @@ public override void Die()
             GameStateManager.WIN_SCREEN_STATE);
     }
 
-    // Roep de basis Die() methode aan om het object te verwijderen
+    // Call the base Die() method to remove the object
     base.Die();
 }`,
           explanation:
-            "Elke vijand die ook echt sterft telt de statische teller op; pas als die gelijk is aan het totaal, schakelt de game naar het winscreen. Dit soort lessen: eerst de foute aanpak, dan begrijpen waarom die fout is, heb ik in mijn technische documentatie per sprint bijgehouden.",
+            "Every enemy that actually dies increments the static counter; only once it equals the total does the game switch to the win screen. I kept track of lessons like this — first the wrong approach, then understanding why it was wrong — in my technical documentation each sprint.",
         },
       },
       {
-        heading: "Skeletten met een eigen wil",
+        heading: "Skeletons with a mind of their own",
         text: [
-          "De skeletons in level 2 kiezen een willekeurige positie op de map, bewegen daarheen en beginnen daar met botten gooien. De uitdaging is de basisklasse Enemy die standaard beweegt richting de speler, en dat gedrag moest ik overschrijven zonder de rest van de overerving te breken.",
+          "The skeletons in level 2 pick a random position on the map, move there, and start throwing bones from that spot. The challenge is the base Enemy class, which moves toward the player by default, and I had to override that behavior without breaking the rest of the inheritance.",
         ],
         code: {
-          caption: "Uit Skeleton.cs — bewegen naar een willekeurige stoppositie",
+          caption: "From Skeleton.cs — moving to a random stop position",
           snippet: `private void MoveToRandomPosition()
 {
     // Calculate direction towards the random stopping position
@@ -509,13 +509,13 @@ public override void Die()
 
 private void GenerateRandomStopPosition()
 {
-    // Genereer een willekeurige positie binnen de schermgrenzen
+    // Generate a random position within the screen boundaries
     float randomX = (float)random.Next(60, 750);
     float randomY = (float)random.Next(60, 770);
     randomStopPosition = new Vector2(randomX, randomY);
 }`,
           explanation:
-            "Zodra een skelet stilstaat, start een schiet-timer die elke paar seconden een botprojectiel richting de speler gooit. Daarnaast houdt het level bij hoeveel skeletten er tegelijk op het scherm staan, zodat het spawnen stopt bij het maximum en pas verdergaat als er eentje verslagen is.",
+            "Once a skeleton stops, a shooting timer starts that throws a bone projectile at the player every few seconds. The level also keeps track of how many skeletons are on screen at once, so spawning stops at the maximum and only continues once one has been defeated.",
         },
       },
     ],
