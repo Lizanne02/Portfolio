@@ -30,7 +30,7 @@
 export const projects = [
   {
     slug: "orginsights",
-    title: "OrgInsights",
+    title: "Organisational Insights",
     tagline: "VR menu redesign & 3D environment",
     thumbnail: "/images/orginsights-guidance.png",
     banner: "/images/orginsights-guidance.png",
@@ -45,7 +45,7 @@ export const projects = [
       "Built a real-time guidance system with dynamic highlights and paths.",
     ],
     description: [
-      "For the Immersive Tech Studio, I worked on redesigning a VR menu to make it more user-friendly, accessible, and scalable for large amounts of data. The existing overlay menu didn't work well in VR, because users couldn't open the menu on their own and the overview got lost with many options.",
+      "For the Immersive Tech Studio we worked as a team on a mixed-reality experience that lets users navigate organisational structures and HR processes in an immersive space. I worked on redesigning a VR menu to make it more user-friendly, accessible, and scalable for large amounts of data. The existing overlay menu didn't work well in VR, because users couldn't open the menu on their own and the overview got lost with many options.",
       "To solve this, I first researched different VR menu systems, such as world-space, view-fixed, and radial menus. I also analyzed existing VR games such as Beat Saber and Half-Life: Alyx to understand which interaction patterns work intuitively within virtual reality. This research showed that a scalable world-space/view-fixed menu was the best solution for complex interfaces with many processes and steps.",
       "Next, I designed two menu concepts and tested them via an A/B test with users. This showed that one compact radial menu was understood faster, but that a more extensive structured menu worked better with 50+ processes. Based on these results, I designed a final menu that stayed clear even with larger datasets.",
       "During user testing, the majority of testers found the menu clear and easy to use, successfully achieving the goal of a more accessible and user-friendly VR menu.",
