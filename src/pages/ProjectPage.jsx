@@ -13,12 +13,12 @@ export default function ProjectPage() {
   return (
     <article className="project-page container">
       <Link to="/#projects" className="back-link">
-        ← Terug naar projecten
+        ← Back to projects
       </Link>
 
       <div className="project-banner hex-frame">
         <div className="hex-frame__inner">
-          <img src={project.banner} alt={`Banner van ${project.title}`} />
+          <img src={project.banner} alt={`Banner of ${project.title}`} />
         </div>
       </div>
 
@@ -27,7 +27,7 @@ export default function ProjectPage() {
 
       <dl className="project-meta">
         <div>
-          <dt>Mijn rol</dt>
+          <dt>My role</dt>
           <dd>{project.role}</dd>
         </div>
         <div>
@@ -43,7 +43,7 @@ export default function ProjectPage() {
           </dd>
         </div>
         <div>
-          <dt>Wanneer</dt>
+          <dt>When</dt>
           <dd>{project.period}</dd>
         </div>
       </dl>
@@ -117,7 +117,7 @@ export default function ProjectPage() {
           target="_blank"
           rel="noreferrer"
         >
-          Bekijk project ↗
+          View project ↗
         </a>
       )}
     </article>
